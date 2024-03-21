@@ -19,16 +19,16 @@ jobs:
           az aks get-credentials --resource-group hitema_kube --name hitema --overwrite-existing
 
       - name: Build Docker image
-      run: |
-        docker build -t ${{ secrets.DOCKER_USERNAME }}/cgo-backend .
-        docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
-        docker tag ${{ secrets.DOCKER_USERNAME }}/backend-app ${{ secrets.DOCKER_USERNAME }}/backend-app:v2
-        docker push ${{ secrets.DOCKER_USERNAME }}/backend-app:v2
-    
+     run: |
+          docker build -t ${{ secrets.DOCKER_USERNAME }}/cgo-backend .
+          docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
+          docker tag ${{ secrets.DOCKER_USERNAME }}/backend-app ${{ secrets.DOCKER_USERNAME }}/backend-app:v2
+          docker push ${{ secrets.DOCKER_USERNAME }}/backend-app:v2
+      
       - name: Apply Kubernetes files
       run: |
         kubectl apply -f deployment.yaml
-        kubectl apply -f service.yaml
+       
 
   
 
