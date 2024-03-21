@@ -1,17 +1,16 @@
-from flask import Flask, request, jsonify
+from flask import Flask, jsonify, request
 
 app = Flask(__name__)
 
-@app.route('/get_endpoint', methods=['GET'])
+@app.route('/get', methods=['GET'])
 def get_endpoint():
-    # Logic for GET endpoint
-    return jsonify({'message': 'GET request received'})
+    ip = request.host.split(':')[0]
+    return jsonify({"message": "Hello World!", "server_ip": ip})
 
-@app.route('/post_endpoint', methods=['POST'])
+@app.route('/post', methods=['POST'])
 def post_endpoint():
-    # Logic for POST endpoint
-    data = request.json
-    return jsonify({'message': 'POST request received', 'data': data})
+    data = request.get_json()
+    return f"POST endpoint called with data: {data}"
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host='0.0.0.0', port=5000)
