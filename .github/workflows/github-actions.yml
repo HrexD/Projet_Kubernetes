@@ -30,11 +30,5 @@ jobs:
 
       - name: Apply Kubernetes files
         run: |
-             kubectl apply -f mysql-deployment.yaml
-             kubectl apply -f mysql-service.yaml
              kubectl apply -f deployment.yaml
              kubectl apply -f service.yaml
-             kubectl apply -f mysql-pvc.yaml
-             kubectl apply -f mysql-pv.yaml
-             kubectl apply -f frontend-deployment.yaml
-             kubectl apply -f frontend-service.yaml
