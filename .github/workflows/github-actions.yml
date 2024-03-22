@@ -12,8 +12,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-
-      #PARTIE AZURE
       - name: Connect to Azure
         run: |
           az login --use-device-code
@@ -22,7 +20,7 @@ jobs:
           az account set --subscription ${{ secrets.AZURE_SUBSCRIPTION_ID }}
           az aks get-credentials --resource-group hitema_kube --name hitema --overwrite-existing
 
-      #PARTIE DOCKER
+      
       - name: Build Docker image backend
         run: |
           docker build -t cgohitema/backend-app .
@@ -38,16 +36,14 @@ jobs:
            docker tag cgohitema/frontend-app cgohitema/frontend-app:v5
            docker push cgohitema/frontend-app:v1
 
-  
-      #PARTIE KUBERNETES
       - name: Apply Kubernetes files
         run: |
-          kubectl apply -f mysql-deployment.yaml
-          kubectl apply -f mysql-service.yaml
-          kubectl apply -f mysql-init-script.yaml
-          kubectl apply -f deployment.yaml
-          kubectl apply -f service.yaml
-          kubectl apply -f mysql-pvc.yaml
-          kubectl apply -f mysql-pv.yaml
-          kubectl apply -f frontend-deployment.yaml
-          kubectl apply -f frontend-service.yaml
+             kubectl apply -f mysql-deployment.yaml
+             kubectl apply -f mysql-service.yaml
+             kubectl apply -f mysql-init-script.yaml
+             kubectl apply -f deployment.yaml
+             kubectl apply -f service.yaml
+             kubectl apply -f mysql-pvc.yaml
+             kubectl apply -f mysql-pv.yaml
+             kubectl apply -f frontend-deployment.yaml
+             kubectl apply -f frontend-service.yaml
