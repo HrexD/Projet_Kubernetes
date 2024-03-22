@@ -4,9 +4,9 @@ metadata:
   name: cetahyme-backend-service
 spec:
   selector:
-    app: backend
+    app: cgo_backend
   ports:
   - protocol: TCP
     port: 780
-    targetPort: 5000
+    targetPort: 5001
   type: LoadBalancer

@@ -9,8 +9,8 @@ COPY app.py /app/
 # Définition du répertoire de travail
 WORKDIR /app
 
-# Exposition du port 5000
-EXPOSE 5000
+# Exposition du port 5001
+EXPOSE 5001
 
 # Commande par défaut pour exécuter l'application
 CMD ["python", "app.py"]
