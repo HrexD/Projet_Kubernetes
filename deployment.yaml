@@ -6,15 +6,14 @@ spec:
   replicas: 3
   selector:
     matchLabels:
-      app: cgo-backend
+      app: backend
   template:
     metadata:
       labels:
-        app: cgo-backend
+        app: backend
     spec:
       containers:
       - name: cgo-backend-container
         image: cgohitema/backend-app:v3
         ports:
         - containerPort: 5001
-
