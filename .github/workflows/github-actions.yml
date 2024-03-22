@@ -12,10 +12,12 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - name: Azure Login and AKS Set Context
+      - name: Connect to Azure
         run: |
-          az login --username ${{ secrets.AZURE_USERNAME }} --password ${{ secrets.AZURE_PASSWORD }}
-          az account set --subscription ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+          az login --use-device-code
+      - name: Connect to Kubernetes cluster
+        run: |
+          az account set --subscription ${{ secrets.AZURE_SUBSCRIPTION }}
           az aks get-credentials --resource-group hitema_kube --name hitema --overwrite-existing
 
       - name: Build Docker image
