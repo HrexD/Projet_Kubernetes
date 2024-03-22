@@ -21,21 +21,13 @@ jobs:
           az aks get-credentials --resource-group hitema_kube --name hitema --overwrite-existing
 
       
-      - name: Build Docker image backend
+      - name: Build Docker image
         run: |
           docker build -t cgohitema/backend-app .
           docker login -u cgohitema -p ${{ secrets.DOCKER_PASSWORD }}
-          docker tag  cgohitema/backend-app  cgohitema/backend-app:v2
-          docker push  cgohitema/backend-app:v2
+          docker tag  cgohitema/backend-app  cgohitema/backend-app:v3
+          docker push  cgohitema/backend-app:v3
 
-      - name: Build Docker image  frontend
-        run: |
-           cd templates
-           docker build -t cgohitema/frontend-app .
-           docker login -u cgohitema -p ${{ secrets.DOCKER_PASSWORD }}
-           docker tag cgohitema/frontend-app cgohitema/frontend-app:v1
-           docker push cgohitema/frontend-app:v1
-      
       - name: Apply Kubernetes files
         run: |
              kubectl apply -f mysql-deployment.yaml

@@ -14,15 +14,7 @@ spec:
     spec:
       containers:
       - name: backend-container
-        image: cgohitema/backend-app:v2
+        image: cgohitema/backend-app:v3
         ports:
         - containerPort: 5000
-        env:
-        - name: MYSQL_HOST
-          value: cetahyme-mysql-service
-        - name: MYSQL_USER
-          value: root
-        - name: MYSQL_PASSWORD
-          value: azerty123
-        - name: MYSQL_DATABASE
-          value: cgo_database
+
