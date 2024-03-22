@@ -2,7 +2,7 @@ from flask import Flask, jsonify, request
 
 app = Flask(__name__)
 
-@app.route('/monsupertravaildelegende', methods=['GET'])
+@app.route('/legende', methods=['GET'])
 def monsupertravail():
     return f"Bonjour, j'aimerais que ca marche"
 
