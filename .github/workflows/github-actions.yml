@@ -35,12 +35,21 @@ jobs:
            docker login -u cgohitema -p ${{ secrets.DOCKER_PASSWORD }}
            docker tag cgohitema/frontend-app cgohitema/frontend-app:v1
            docker push cgohitema/frontend-app:v1
+      - name: delete Kubernetes files
+        run: |
+                kubectl delete -f mysql-deployment.yaml
+                kubectl delete -f mysql-service.yaml
+                kubectl delete -f deployment.yaml
+                kubectl delete -f service.yaml
+                kubectl delete -f mysql-pvc.yaml
+                kubectl delete -f mysql-pv.yaml
+                kubectl delete -f frontend-deployment.yaml
+                kubectl delete -f frontend-service.yaml
 
       - name: Apply Kubernetes files
         run: |
              kubectl apply -f mysql-deployment.yaml
              kubectl apply -f mysql-service.yaml
-             kubectl apply -f mysql-init-script.yaml
              kubectl apply -f deployment.yaml
              kubectl apply -f service.yaml
              kubectl apply -f mysql-pvc.yaml

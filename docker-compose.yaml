@@ -5,10 +5,9 @@ services:
     image: mysql:5.7
     restart: always
     environment:
-      MYSQL_ROOT_PASSWORD: password
-      MYSQL_DATABASE: mydatabase
+      MYSQL_ROOT_PASSWORD: azerty123
+      MYSQL_DATABASE: cgo_database
     ports:
       - "3306:3306"
-    volumes:
-      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+ 
 
