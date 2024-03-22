@@ -5,7 +5,7 @@ app = Flask(__name__)
 @app.route('/get', methods=['GET'])
 def get_endpoint():
     ip = request.host.split(':')[0]
-    return jsonify({"message": "Hello World!", "server_ip": ip})
+    return jsonify({"message": "Bonjour Monsieur, j'espere que cela va fonctionner", "server_ip": ip})
 
 @app.route('/post', methods=['POST'])
 def post_endpoint():
