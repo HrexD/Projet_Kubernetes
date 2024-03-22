@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Frontend</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Simple Frontend du W</h1>
+    <div id="users"></div>
+
+    <button onclick="getUsers()">Afficher les utilisateurs</button>
+
+    <script>
+        function getUsers() {
+            print("Hello");
+
+            /*
+            fetch('http://4.225.192.35/users')
+            .then(response => response.json())
+            .then(data => {
+                let usersHTML = '';
+                data.users.forEach(user => {
+                    usersHTML += `<p>ID: ${user[0]}, Name: ${user[1]}, Email: ${user[2]}</p>`;
+                });
+                document.getElementById('users').innerHTML = usersHTML;
+            })
+            .catch(error => {
+                console.error('Error fetching users:', error);
+            });*/
+        }
+    </script> 
+</body>
+</html>
+
