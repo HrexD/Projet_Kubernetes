@@ -3,12 +3,12 @@ from flask import Flask, jsonify, request
 app = Flask(__name__)
 
 @app.route('/get', methods=['GET'])
-def get_endpoint():
+def get_endpoint_cgo():
     ip = request.host.split(':')[0]
     return jsonify({"message": "Hello les SAYAJINS", "server_ip": ip})
 
 @app.route('/post', methods=['POST'])
-def post_endpoint():
+def post_endpoint_cgo():
     data = request.get_json()
     return f"POST endpoint called with data: {data}"
 
