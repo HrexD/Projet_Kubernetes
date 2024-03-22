@@ -22,10 +22,10 @@ jobs:
 
       - name: Build Docker image
         run: |
-          docker build -t  ${{ secrets.DOCKER_USERNAME }}/backend-app .
-          docker login -u  ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
-          docker tag  ${{ secrets.DOCKER_USERNAME }}/backend-app  ${{ secrets.DOCKER_USERNAME }}/backend-app:v2
-          docker push  ${{ secrets.DOCKER_USERNAME }}/backend-app:v2
+          docker build -t cgohitema/backend-app .
+          docker login -u cgohitema -p ${{ secrets.DOCKER_PASSWORD }}
+          docker tag  cgohitema/backend-app  cgohitema/backend-app:v2
+          docker push  cgohitema/backend-app:v2
 
       - name: Apply Kubernetes files
         run: |
