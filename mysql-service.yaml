@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: mysql-service-CETahyme
+  name: mysql-service-cetahyme
 spec:
   selector:
     app: mysql

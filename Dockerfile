@@ -18,7 +18,7 @@ WORKDIR /app
 EXPOSE 5000
 
 # Définir la variable d'environnement MYSQL_HOST
-ENV MYSQL_HOST=mysql-service-CETahyme
+ENV MYSQL_HOST=mysql-service-cetahyme
 
 # Commande par défaut pour exécuter l'application
 CMD ["python", "app.py"]

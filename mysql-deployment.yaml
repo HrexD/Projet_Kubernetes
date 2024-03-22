@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: mysql-deployment-CETahyme
+  name: mysql-deployment-cetahyme
 spec:
   replicas: 1
   selector:
