@@ -33,7 +33,7 @@ jobs:
            cd templates
            docker build -t cgohitema/frontend-app .
            docker login -u cgohitema -p ${{ secrets.DOCKER_PASSWORD }}
-           docker tag cgohitema/frontend-app cgohitema/frontend-app:v5
+           docker tag cgohitema/frontend-app cgohitema/frontend-app:v1
            docker push cgohitema/frontend-app:v1
 
       - name: Apply Kubernetes files
