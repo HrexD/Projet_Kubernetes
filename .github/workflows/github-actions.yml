@@ -17,7 +17,7 @@ jobs:
           az login --use-device-code
       - name: Connect to Kubernetes cluster
         run: |
-          az account set --subscription ${{ secrets.AZURE_SUBSCRIPTION }}
+          az account set --subscription ${{ secrets.AZURE_SUBSCRIPTION_ID }}
           az aks get-credentials --resource-group hitema_kube --name hitema --overwrite-existing
 
       - name: Build Docker image
