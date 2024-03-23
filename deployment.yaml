@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: cetahyme-backend-deployment
+  name: cetahyme-back-deployment
 spec:
   replicas: 3
   selector:
     matchLabels:
-      app: backend
+      app: cgo-tahyme
   template:
     metadata:
       labels:
-        app: backend
+        app: cgo-tahyme
     spec:
       containers:
-      - name: cgo-backend-container
-        image: cgohitema/backend-app:v3
+      - name: cgo-tahyme-back-container
+        image: cgohitema/backend-app:v4
         ports:
-        - containerPort: 5001
+        - containerPort: 5000

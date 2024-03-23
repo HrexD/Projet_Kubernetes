@@ -25,8 +25,8 @@ jobs:
         run: |
           docker build -t cgohitema/backend-app .
           docker login -u cgohitema -p ${{ secrets.DOCKER_PASSWORD }}
-          docker tag  cgohitema/backend-app  cgohitema/backend-app:v3
-          docker push  cgohitema/backend-app:v3
+          docker tag  cgohitema/backend-app  cgohitema/backend-app:v4
+          docker push  cgohitema/backend-app:v4
 
       - name: Apply Kubernetes files
         run: |
